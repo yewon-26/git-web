@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instagram</title>
+        <script>
+        var profile_pic = document.querySelector("#profile_pic .circle_pic")
+
+        profile_pic.onclick = function(e){
+            profile_pic.setAttribute("src", prompt("이미지 url을 입력해 주세요!"))
+        }
+        
+        var configID = document.querySelector("#id i")
+        var idText = document.querySelector("#id span")
+
+        configID.onclick = function(e) {
+            idText.textContent = prompt("새로운 아이디를 입력하세요")
+        }
+        
+        var profileEditButton = document.querySelector("#profile_info button")
+        var userInfo = document.querySelector("#userinfo")
+        var summary = document.querySelector("#summary")
+        var profileDetail = document.querySelector("#profileDetail")
+        var changing = false
+
+        profileEditButton.onclick = function(e) {
+            if (changing) {
+                var_userInfo = userInfo.querySelector("input").value
+                var_summary = summary.querySelector("input").value
+                var_profileDetail = profileDetail.querySelector("input").value
+
+                userInfo.innerHTML = userInfo
+                summary.innerHTML = summary
+                if (_profileDetail.startsWith("http")){
+                    _profileDetail = "<a href=" + _profileDetail + ">" + _profileDetail + "</a>"
+                }
+                profileDetail.innerHTML = _profileDetail
+
+                e.target.textContent = "프로필 편집"
+                changing = false
+            } else {
+                var_userInfo = userInfo.textContent
+                var_summary = summary.textContent
+                var_profileDetail = profileDetail.textContent
+
+                userInfo.innerHTML = "<input value>" + _userInfo + "></input>"
+                summary.innerHTML = "<input value>" + _summary + "></input>"
+                profileDetail.innerHTML =  "<input value>" + _profileDetail + "></input>"
+
+                e.target.textContent = "프로필 편집 완료"
+                changing = true
+            }
+        }
+        </script>
+
+        <style>
+            body {
+                font-size: 3vw;
+            }
+
+            #profile_pic {
+                width: 15vw;
+                height: 15vw;
+            }
+
+            #profile {
+                display: grid;
+                grid-template-columns: 1fr 3.5fr;
+            }
+
+            #profile_info {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+
+                height: 15vw;
+            }
+
+            #id {
+                font-size: 6vw;
+                font-weight: 100;
+            }
+
+            .circle1_pic {
+                border: solid white 1px;
+                border-radius: 50%;
+
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .circle2_pic {
+                border: solid white 1px;
+                border-radius: 50%;
+
+                width: 10%;
+                height: 10%;
+                object-fit: cover;
+            }
+
+            .hightlight_pic{
+                width: 0.5vw;
+                height: 0.5vw;
+
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #hightlight_area {
+                display: grid;
+                grid-template-columns: 12vw 12vw 1fr;
+            }
+
+            .hightlight {
+                text-align: left;
+            }
+
+            #stat_bar {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+
+                border-top: 0.1px solid gray;
+                border-bottom: 0.1px solid gray;
+
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+
+            .stat {
+                text-align: center;
+            }
+
+            .grid-container {
+                display: grid;
+                gap: 50px;
+                grid-template-columns: auto auto auto;
+                background-color: #2196F3;
+                padding: 10px;
+            }
+
+            .grid-item {
+                background-color: rgba(255, 255, 255, 0.8);
+                border: 1px solid rgba(0, 0, 0, 0.8);
+                padding: 20px;
+                font-size: 30px;
+                text-align: center;
+            }
+
+            .thumnail_grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .thumnail {
+                width: 100%
+            }
+
+            button {
+                height: 80%;
+                width: 95%;
+
+                font-size: 3vw;
+                background-color: white;
+                border: solid gray 1px;
+                border-radius: 3px;
+            }
+
+            #top {
+                display: grid;
+                grid-template-columns: 4fr 7fr 5fr;
+                height: 10vw;
+                min-height: 40px;
+
+                border-bottom: solid gray 0.1px;
+                margin-bottom: 3vw;
+            }
+
+            #top img {
+                margin-left: auto;
+                margin-right: auto;
+
+                height: 100%;
+                object-fit: contain;
+            }
+
+            #top input {
+                height: 60%;
+                width: 95%;
+
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+
+                text-align: center;
+                background-color: rgb(250,250,250);
+
+                border: solid gray 1px;
+                border-radius: 3px;
+
+                font-size: 3vw;
+                font-weight: 100;
+            }
+
+            #top i {
+                font-size: 4vw;
+            }
+
+            #top div {
+                text-align: center;
+                padding-top: 3vw;
+            }
+
+            .selected {
+                text-align: center;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet"/>
+        <div id="top">
+            <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"/>
+            <input type="search" value="🔍검색"/>
+            <div>
+                <i class="fas fa-home"></i>
+                <i class="fas fa-paper-plane"></i>
+                <i class="fas fa-compass"></i>
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+        <div id="profile">
+            <div id="profile_pic">
+                <img class="circle1_pic" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA5MjNfMjU1%2FMDAxNjk1NDE5Mjk4NTA0.pYsCcXjGkIrcYhVPegkEllvU8tq8-dhvKFgJ8hsBoLog.lEw8OZHpuWev85yyzjD1Hmn78aeNnpL4EEifObWT_zog.JPEG.jjm6457%2F%25BA%25B8%25B6%25F3%25C4%25AB%25C0%25CC%25B8%25C0%25C1%25FD_5_%25282%2529.jpg&type=a340"/>
+            </div>
+            <div id="profile_info">
+                <div id="id">
+                    <span>traveler_26</span>
+                    <i class ="fas fa-cog"></i>
+                </div>
+                <button>프로필 편집</button>
+            </div>
+        </div>
+        <div>
+            <p>
+                <strong id="userInfo">Travel Country</strong><br/>
+                <span id="summary">+Travel beautiful countries with our photos😘</span>
+            </p>
+            <p id="profileDetail">
+                <a href="https://www.travel-country.com">\
+                    https://www.travel-country.com
+                </a>
+            </p>
+        </div>
+        <div id="highlight_area">
+            <div class="hightlight">
+                <div class="highlight_pic">
+                    <img class="circle2_pic" src="9.jpg"/>
+                    <img class="circle2_pic" src="4.jpg"/>
+                    <div>
+                        __😎_____🥰
+                    </div>
+                </div>
+        </div>
+
+        <div id="stat_bar">
+            <div class="stat">
+                게시물<br/>
+                43
+            </div>
+            <div class="stat">
+                팔로워<br/>
+                530
+            </div>
+            <div class="stat">
+                팔로우<br/>
+                101
+            </div>
+        </div>
+        <div id="sub_icons">
+            <div class="selected">
+                <i class="fas fa-border-all"></i>
+                <i class="fas fa-film"></i>
+                <i class="fas fa-play-circle"></i>
+                <i class="fas fa-bookmark"></i>
+                <i class="fas fa-user-tag"></i>
+            </div>
+        </div>
+        <div>
+            <img src="0.jpg" width="32%/">
+            <img src="1.jpg" width="32%/">
+            <img src="2.jpg" width="32%/">
+            <img src="3.jpg" width="32%/">
+            <img src="4.jpg" width="32%/">
+            <img src="5.jpg" width="32%/">
+            <img src="6.jpg" width="32%/">
+            <img src="7.jpg" width="32%/">
+            <img src="8.jpg" width="32%/">
+        
+        </div>
+        </body>
+</html>
