@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Basic</title>
+        <script>
+            window.onload = function () {   //이벤트 연결
+                var output ='';
+                for (var i=0; i < 10; i++) {
+                    output += '<h1>Header - ' + i + '</h1>';
+                }
+                //문서 객체 내부의 글자 변경경
+                document.body.textContent = output;
+                document.body.innerHTML = output;
+            };
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
