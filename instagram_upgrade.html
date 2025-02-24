@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram</title>
+
+    <!-- Font Awesome Icons -->
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet"/>
+
+    <style>
+        /* 전체 페이지 폰트 크기 설정 */
+        body {
+            font-size: 3vw;
+        }
+
+        /* 프로필 사진 영역 스타일 */
+        #profile_pic {
+            width: 20vw;
+            height: 20vw;
+        }
+
+        /* 프로필 영역 레이아웃 설정 */
+        #profile {
+            display: grid;
+            grid-template-columns: 1fr 3.5fr;
+        }
+
+        #profile_info {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            height: 15vw;
+        }
+
+        #id {
+            font-size: 6vw;
+            font-weight: 100;
+            margin-bottom: 20px;
+        }
+
+        /* 원형 프로필 사진 스타일 */
+        .circle1_pic, .circle2_pic {
+            border: solid white 1px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .circle1_pic {
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle2_pic {
+            width: 10%;
+            height: 10%;
+        }
+
+        .hightlight_pic{
+                width: 0.5vw;
+                height: 0.5vw;
+
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        /* 하이라이트 영역 스타일 */
+        #hightlight_area {
+            display: grid;
+            grid-template-columns: 12vw 12vw 1fr;
+        }
+
+        .hightlight {
+            text-align: left;
+        }
+
+        /* 통계 바 스타일 */
+        #stat_bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            border-top: 0.1px solid gray;
+            border-bottom: 0.1px solid gray;
+            margin: 5px 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        /* 상단 바 스타일 */
+        #top {
+            display: grid;
+            grid-template-columns: 4fr 7fr 5fr;
+            height: 10vw;
+            min-height: 40px;
+            border-bottom: solid gray 0.1px;
+            margin-bottom: 3vw;
+        }
+
+        #top img {
+            margin: 0 auto;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #top input {
+            height: 60%;
+            width: 95%;
+            margin: auto;
+            text-align: center;
+            background-color: rgb(250,250,250);
+            border: solid gray 1px;
+            border-radius: 3px;
+            font-size: 3vw;
+            font-weight: 100;
+        }
+
+        #top div {
+            text-align: center;
+            padding-top: 3vw;
+        }
+        /* 버튼 스타일 */
+        button {
+            height: 100%;
+            width: 95%;
+            font-size: 3vw;
+            background-color: white;
+            border: solid gray 1px;
+            border-radius: 3px;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .button-container {
+            display: flex; /* 버튼들을 가로로 배치 */
+            gap: 10px; /* 버튼 사이 간격 */
+        }
+
+        .selected {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 10px;
+
+        }
+        /* 하단 고정 바 */
+        .fixed-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px gray;
+        }
+
+        .icons {  /* 아이콘 스타일 */
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 700px;
+        }
+        .emoji {
+            margin-left: 3vw;  /* 화면 크기에 비례하는 간격 */
+            margin-right: 6vw; /* 화면 크기에 비례하는 간격 */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 상단 로고 및 메뉴 -->
+    <div id="top">
+        <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="Instagram Logo"/>
+        <input type="search" value="🔍검색"/>
+        <div>
+            <i class="fas fa-home"></i>
+            <i class="fas fa-paper-plane"></i>
+            <i class="fas fa-compass"></i>
+            <i class="fas fa-heart"></i>
+        </div>
+    </div>
+
+    <!-- 프로필 섹션 -->
+    <div id="profile">
+        <div id="profile_pic">
+            <img class="circle1_pic" src="profile_pic.jpg" alt="Profile Picture"/>
+        </div>
+
+        <div id="profile_info">
+            <div id="id">
+                <span>traveler_26</span>
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="button-container">
+                <button>프로필 편집</button>
+                <button>프로필 공유</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 프로필 설명 -->
+    <div>
+        <p>
+            <strong id="userInfo">Travel Country</strong><br/>
+            <span id="summary">+Travel beautiful countries with our photos😘</span>
+        </p>
+        <p id="profileDetail">
+            <a href="https://www.travel-country.com">https://www.travel-country.com</a>
+        </p>
+    </div>
+
+    <!-- 하이라이트 -->
+    <div id="highlight_area">
+        <div class="hightlight">
+            <div class="highlight_pic">
+                <img class="circle2_pic" src="9.jpg"/>
+                <img class="circle2_pic" src="4.jpg"/>
+                <div>
+                    <span class="emoji">😎</span>🥰
+                </div>
+            </div>
+    </div>
+
+    <!-- 통계 바 -->
+    <div id="stat_bar">
+        <div class="stat">게시물<br/>9</div>
+        <div class="stat">팔로워<br/>2030</div>
+        <div class="stat">팔로잉<br/>61</div>
+    </div>
+    <div id="sub_icons">
+        <div class="selected">
+            <i class="fas fa-border-all"></i>
+            <i class="fas fa-play-circle"></i>
+            <i class="fas fa-user-tag"></i>
+        </div>
+    </div>
+    <div>
+        <img src="0.jpg" width="32%/">
+        <img src="1.jpg" width="32%/">
+        <img src="2.jpg" width="32%/">
+        <img src="3.jpg" width="32%/">
+        <img src="4.jpg" width="32%/">
+        <img src="5.jpg" width="32%/">
+        <img src="6.jpg" width="32%/">
+        <img src="7.jpg" width="32%/">
+        <img src="8.jpg" width="32%/">
+    </div>
+    <!-- 하단 고정 바 -->
+    <div class="fixed-bottom-bar">
+        <div class="icons">
+            <i class="fas fa-border-all"></i>
+            <i class="fas fa-film"></i>
+            <i class="fas fa-play-circle"></i>
+            <i class="fas fa-bookmark"></i>
+            <i class="fas fa-user-tag"></i>
+        </div>
+    </div>
+</body>
+</html>
